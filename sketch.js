@@ -1,32 +1,32 @@
 var myData = [
     {
-      "apples": 5,
-      "orange": 5,
+      "apples": 1,
+      "orange": 4,
       "foo": "x",
       "bar": otherData
     },{
-      "apples": 6,
-      "orange": 4,
+      "apples": 9,
+      "orange": 3,
       "foo": "x",
       "bar": "numbers"
     },{
       "apples": 7,
-      "orange": 3,
+      "orange": 2,
       "foo": "x",
       "bar": "garbage"
     },{
-      "apples": 1,
-      "orange": 9,
+      "apples": 0,
+      "orange": 4,
       "foo": "x",
       "bar": "waffles"
     },{
-      "apples": 5,
-      "orange": 5,
+      "apples": 3,
+      "orange": 2,
       "foo": "x",
       "bar": "pizza"
     },{
-      "apples": 5,
-      "orange": 5,
+      "apples": 8,
+      "orange": 3,
       "foo": "x",
       "bar": "icecream"
     }
@@ -41,19 +41,27 @@ var otherData = [
   }
 ];
 
-function setup() {
-  createCanvas(1000, 500)
-  noStroke()
-  fill("orange")
-  var visTotals = function (someData) {
+function visTotals (someData) {
     for (var i = 0; i < someData.length; i++){
-      var barHeight = someData[i].apples + someData[i].orange;
-      rect(i * 15, 0, 10, barHeight * 10)
+      var barHeight = ((someData[i].apples + someData[i].orange) * 10);
+      var barWidth = 10;
+      var margin = barWidth/2;
+      var spacing = i * (margin + barWidth);
+      
+      rect(spacing, 0, barWidth, barHeight);
     }
   }
+
+
+
+
+function setup() {
+  createCanvas(1000,500)
+  noStroke()
+  fill("orange")
+  
   visTotals(myData);
 }
 
 function draw() {
-
 }
